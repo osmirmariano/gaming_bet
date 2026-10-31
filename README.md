@@ -20,7 +20,6 @@ Se `docker info` mostrar `Cannot connect to the Docker daemon`, o Docker Desktop
 ## 2. Primeira execução
 
 ```sh
-cd "/Users/osmir/Projetos P/teste_gamming"
 cp .env.example .env
 docker compose up --build
 ```
