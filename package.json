@@ -1,0 +1,44 @@
+{
+  "name": "distributed-wager-ledger",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.2.0",
+  "scripts": {
+    "dev": "bun --watch src/api.main.ts",
+    "worker": "bun --watch src/worker.main.ts",
+    "start": "bun src/api.main.ts",
+    "start:worker": "bun src/worker.main.ts",
+    "test": "bun test test/unit/money.test.ts test/unit/wager-transaction.test.ts test/unit/wallet.test.ts test/integration/concurrency.test.ts",
+    "test:unit": "bun test test/unit/money.test.ts test/unit/wager-transaction.test.ts test/unit/wallet.test.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check src test",
+    "lint:fix": "biome check --write src test",
+    "migration:up": "bun src/infrastructure/database/migrate.ts",
+    "migration:down": "bun src/infrastructure/database/migrate.ts down"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.750.0",
+    "@fastify/static": "^10.1.8",
+    "@mikro-orm/core": "^6.4.7",
+    "@mikro-orm/postgresql": "^6.4.7",
+    "@nestjs/common": "^11.0.11",
+    "@nestjs/core": "^11.0.11",
+    "@nestjs/platform-fastify": "^11.0.11",
+    "@nestjs/swagger": "^11.1.1",
+    "decimal.js": "^10.5.0",
+    "jose": "^5.10.0",
+    "pg": "^8.14.1",
+    "redis": "^4.7.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "^1.2.4",
+    "@types/node": "^22.13.5",
+    "@types/pg": "^8.11.11",
+    "typescript": "^5.7.3"
+  }
+}

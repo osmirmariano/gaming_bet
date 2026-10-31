@@ -1,0 +1,11 @@
+DROP TRIGGER IF EXISTS no_ledger_mutation ON wallet_ledger_entries;
+DROP FUNCTION IF EXISTS prevent_ledger_mutation();
+DROP TABLE IF EXISTS outbox_messages;
+DROP TABLE IF EXISTS inbox_messages;
+DROP TABLE IF EXISTS wager_reversals;
+DROP TABLE IF EXISTS wallet_ledger_entries;
+DROP TABLE IF EXISTS wager_transactions;
+DROP TABLE IF EXISTS hmac_nonces;
+DROP TABLE IF EXISTS provider_credentials;
+DROP TABLE IF EXISTS wallets;
+DROP TABLE IF EXISTS providers;

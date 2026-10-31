@@ -1,0 +1,48 @@
+{
+  "realm": "wager",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      { "name": "ADMIN" },
+      { "name": "OPERATOR" },
+      { "name": "AUDITOR" }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "wager-api",
+      "enabled": true,
+      "publicClient": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "protocol": "openid-connect",
+      "redirectUris": ["http://localhost:*/*"],
+      "webOrigins": ["http://localhost:*"],
+      "protocolMappers": [
+        {
+          "name": "wager-api audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "wager-api",
+            "access.token.claim": "true",
+            "id.token.claim": "false"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "operator",
+      "enabled": true,
+      "firstName": "Development",
+      "lastName": "Operator",
+      "email": "operator@wager.local",
+      "emailVerified": true,
+      "requiredActions": [],
+      "credentials": [{ "type": "password", "value": "operator-dev-only", "temporary": false }],
+      "realmRoles": ["OPERATOR"]
+    }
+  ]
+}

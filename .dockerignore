@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.env
+.docker-config
+coverage
+*.log
+README.md
+ARCHITECTURE.md
+DEVELOPMENT.md
+test
